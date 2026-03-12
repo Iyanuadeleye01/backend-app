@@ -2,5 +2,175 @@
 *,
 *:before,
 *:after {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+}
+
+#wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--accent1-color);
+}
+
+:root {
+  --primary-color: #CFE8EF;
+  --secondary-color: #C6DBF0;
+  --accent1-color: #AED1E6;
+  --accent2-color: #A0C4E2;
+  --accent3-color: #85C7DE;
+  --accent4-color: #000;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  background-color: gray;
+
+
+}
+
+/********HEADER***********/
+#top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+
+}
+
+#top-header a {
+  text-decoration: none;
+  color: var(--accent4-color);
+}
+
+.siteName {
+  font-size: large;
+  font-weight: bold;
+}
+
+/**********NAVIGATION*********/
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--accent4-color);
+  color: #fff;
+  margin: 5px;
+  padding: 5px;
+}
+
+ul li {
+  list-style: none;
+}
+
+/***********Body*************/
+h1 {
+  margin: 5px;
+}
+
+.feature-quality {
+  position: relative;
+
+}
+
+.feature-text {
+  position: absolute;
+  top: 22px;
+  left: 7px;
+  width: 130px;
+  height: auto;
+  padding: 10px;
+  font-size: 10px;
+
+  background-color: rgba(0, 0, 0, 0.1);
+  color: var(--accent3-color);
+  font-weight: bold;
+
+}
+
+.upgrades {
+  grid-template-columns: 1fr 1fr;
+
+}
+
+.upgrades img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.reviews p {
+  margin-bottom: 8px;
+}
+
+.feature-quality button {
+  margin-top: 15px;
+  padding: 5px;
+  background-color: var(--accent3-color);
+  color: var(--accent4-color);
+  cursor: pointer;
+}
+
+.sections-info {
+  grid-template-columns: 1fr;
+  background-color: var(--primary-color);
+  color: var(--accent4-color);
+  margin-bottom: 10px;
+
+}
+
+.upgrades {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin: 5px;
+  order: 2;
+}
+
+.upgrades h2 {
+  grid-column: span 2;
+}
+
+.reviews {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  order: 1;
+  margin: 5px;
+}
+
+/********MOBILE VIEW*******/
+@media screen and (min-width:600px) {
+  .feature-text {
+    top: 120px;
+    left: 40px;
+    padding: 20px;
+    margin: 5px;
+    width: 190px;
+    height: 200px;
+
+  }
+
+  .feature-quality img {
+    width: 100%;
+    display: block;
+  }
+
+  .sections-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+
+  .upgrades {
+    order: 1;
+  }
+
+  .reviews {
+    order: 2;
+    margin: 5px;
+  }
 }
