@@ -142,6 +142,77 @@ h1 {
   margin: 5px;
 }
 
+/* ===== Vehicle Detail Container ===== */
+.vehicle-detail-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+  align-items: start;
+}
+
+/* Vehicle Image */
+.vehicle-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vehicle-image img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  object-fit: cover;
+}
+
+/* Vehicle Info */
+.vehicle-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family: 'Arial', sans-serif;
+}
+
+.vehicle-info h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+.vehicle-info p {
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+.vehicle-info p strong {
+  color: #000;
+}
+
+ /********VEHICLE GRID*******/
+ .vehicle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.vehicle-grid li {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.vehicle-grid img {
+  max-width: 100%;
+}
+
 /********MOBILE VIEW*******/
 @media screen and (min-width:600px) {
   .feature-text {
@@ -172,5 +243,16 @@ h1 {
   .reviews {
     order: 2;
     margin: 5px;
+  }
+
+  .vehicle-detail-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .vehicle-image,
+  .vehicle-info {
+    width: 100%;
+    text-align: center;
   }
 }

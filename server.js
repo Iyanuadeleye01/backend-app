@@ -12,7 +12,7 @@ const app = express()
 const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
 const utilities = require("./utilities")
-
+const invRoutes = require("./routes/inventoryRoute")
 
 /* ***********************
  * View Engine and Templates
@@ -33,6 +33,9 @@ app.use(static)
 // Index route
 app.get("/", utilities.handleErrors(baseController.buildHome))
 
+// Inventory route
+app.use("/inv", invRoutes)
+
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})
@@ -52,6 +55,15 @@ app.use(async (err, req, res, next) =>{
     nav
   })
 })
+
+// 500 handler
+app.use((err, req, res, next) => {
+  console.error("Error at:", req.originalUrl, err.message);
+  res.status(500).render("error", {
+    title: "Server Error",
+    message: "Oh no! There was a crash. Maybe try a different route?"
+  });
+});
 
 
 
