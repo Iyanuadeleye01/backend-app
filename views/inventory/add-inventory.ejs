@@ -1,0 +1,86 @@
+<h1><%= title %></h1>
+
+<% if (messages.length > 0) { %>
+  <% messages.forEach(msg => { %>
+    <p><%= msg %></p>
+  <% }) %>
+<% } %>
+
+
+
+  
+
+
+
+
+<form class="form-container" method="post" action="/inv/add-inventory">
+  <h2>Add New Vehicle</h2>
+
+  <div class="form-group">
+    <label for="inv_make">Make</label>
+    <input id="inv_make" name="inv_make" value="<%= inv_make %>" required>
+  </div>
+
+  <div class="form-group">
+    <label for="inv_model">Model</label>
+    <input id="inv_model" name="inv_model" value="<%= inv_model %>" required>
+  </div>
+
+  <div class="form-group">
+    <label for="inv_year">Year</label>
+    <input id="inv_year" type="number" name="inv_year" value="<%= inv_year %>" required>
+  </div>
+
+  <div class="form-group">
+    <label for="inv_price">Price</label>
+    <input id="inv_price" type="number" name="inv_price" value="<%= inv_price %>" required>
+  </div>
+
+  <div class="form-group">
+    <label for="inv_miles">Miles</label>
+    <input id="inv_miles" type="number" name="inv_miles" value="<%= inv_miles %>" required>
+  </div>
+
+  <div class="form-group">
+    <label for="inv_color">Color</label>
+    <input id="inv_color" name="inv_color" value="<%= inv_color %>" required>
+  </div>
+
+  <div class="form-group">
+    <label for="inv_description">Description</label>
+    <textarea id="inv_description" name="inv_description" required><%= inv_description %></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="inv_image">Image Path</label>
+    <input id="inv_image" name="inv_image" value="<%= inv_image %>" required>
+  </div>
+
+  <div class="form-group">
+    <label for="inv_thumbnail">Thumbnail Path</label>
+    <input id="inv_thumbnail" name="inv_thumbnail" value="<%= inv_thumbnail %>" required>
+  </div>
+
+  <div class="form-group">
+    <label for="classificationList">Classification</label>
+    <%- classificationList %>
+  </div>
+
+  <button type="submit" class="submit-btn">Add Vehicle</button>
+</form>
+
+<!-- show flash messages -->
+<% if (messages && messages.length > 0) { %>
+  <% messages.forEach(msg => { %>
+    <p class="flash-message"><%= msg %></p>
+  <% }) %>
+<% } %>
+
+<!-- show validation errors -->
+<% if (errors) { %>
+  <ul class="error-list">
+    <% errors.forEach(err => { %>
+      <li><%= err.msg %></li>
+    <% }) %>
+  </ul>
+<% } %>

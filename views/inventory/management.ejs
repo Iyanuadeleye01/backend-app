@@ -1,0 +1,24 @@
+<div class="management-container">
+    <h1 class="page-title">
+        <%= title %>
+    </h1>
+
+    <% if (messages && messages.length> 0) { %>
+        <div class="flash-message">
+            <ul>
+                <% messages.forEach(msg=> { %>
+                    <li>
+                        <%= msg %>
+                    </li>
+                    <% }) %>
+            </ul>
+        </div>
+        <% } %>
+            <div class="management-actions">
+
+                <ul>
+                    <li><a href="/inv/add-classification">Add New Classification</a></li>
+                    <li><a href="/inv/add-inventory">Add New Inventory</a></li>
+                </ul>
+            </div>
+</div>

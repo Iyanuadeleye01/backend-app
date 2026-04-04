@@ -14,5 +14,8 @@ router.get("/error", invController.triggerError);
 // Management view
 router.get("/", invController.buildManagement)
 
+// Classificationlist to add inventory
+router.get("/add-inventory", invController.buildAddInventory)
+
 
 module.exports = router;

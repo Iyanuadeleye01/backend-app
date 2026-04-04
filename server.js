@@ -17,7 +17,7 @@ const session = require("express-session")
 const pool = require("./database")
 const accountRoutes = require("./routes/accountRoute")
 const bodyParser = require("body-parser")
-
+const classificationRoute = require("./routes/classificationRoute")
 
 /* ***********************
  * Middleware
@@ -66,6 +66,9 @@ app.use("/inv", invRoutes)
 
 // Account route
 app.use("/account", accountRoutes)
+
+// Classification route
+app.use("/inv", classificationRoute)
 
 // File Not Found Route
 app.use(async (req, res, next) => {
