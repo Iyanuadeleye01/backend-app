@@ -1,0 +1,23 @@
+<h1> <%= title %></h1>
+
+
+
+<!-- Flash Message -->
+<% if (messages && messages.length > 0) { %>
+  <ul>
+    <% messages.forEach(msg => { %>
+      <li><%= msg %></li>
+    <% }) %>
+  </ul>
+<% } %>
+
+<!-- Errors -->
+<% if (errors) { %>
+  <ul>
+    <% errors.forEach(error => { %>
+      <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+<% } %>
+
+<p>You're logged in</p>

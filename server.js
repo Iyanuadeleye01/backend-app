@@ -18,6 +18,7 @@ const pool = require("./database")
 const accountRoutes = require("./routes/accountRoute")
 const bodyParser = require("body-parser")
 const classificationRoute = require("./routes/classificationRoute")
+const cookieParser = require("cookie-parser")
 
 /* ***********************
  * Middleware
@@ -43,6 +44,11 @@ app.use(function(req, res, next){
   res.locals.messages = require('express-messages')(req, res)
   next()
 })
+
+// Cookie parser
+app.use(cookieParser())
+
+app.use(utilities.checkJWTToken)
 
 /* ***********************
  * View Engine and Templates

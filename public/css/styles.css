@@ -446,6 +446,121 @@ input:required:valid {
   .submit-btn:hover {
     background-color: #0056b3;
   }
+/****INVENTORY MANAGEMENT VIEW*******/
+/* Container & Layout */
+.management-container {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Page Title */
+.page-title {
+  text-align: center;
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Flash Messages */
+.flash-message {
+  background-color: #ffefc1;
+  border-left: 5px solid #ffc107;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 5px;
+}
+.flash-message ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin: 0;
+}
+.flash-message li {
+  margin-bottom: 0.3rem;
+}
+
+/* Actions Navigation */
+
+.actions-nav ul {
+  display: block;        
+  padding: 0;
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.actions-nav ul li {
+  margin-bottom: 0.5rem; 
+}
+
+.actions-nav .btn {
+  display: inline-block;  
+  text-decoration: none;
+  background-color: #007bff;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  width: 200px;         
+  text-align: center;
+}
+
+.actions-nav .btn:hover {
+  background-color: #0056b3;
+}
+
+
+/* Headings and Paragraphs */
+.management-actions h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+.management-actions p {
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+/* Classification Dropdown */
+.classification-select select {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 1.5rem;
+}
+
+/* Inventory Table */
+.inventory-table-container {
+  overflow-x: auto;
+}
+#inventoryDisplay {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+#inventoryDisplay th,
+#inventoryDisplay td {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  text-align: left;
+}
+#inventoryDisplay th {
+  background-color: #007bff;
+  color: white;
+}
+#inventoryDisplay tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Noscript */
+noscript {
+  color: red;
+  font-weight: bold;
+}
 
 /********MOBILE VIEW*******/
 @media screen and (min-width:600px) {

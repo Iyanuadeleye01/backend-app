@@ -8,7 +8,7 @@ const validate = {}
 /*  **********************************
   *  Registration Data Validation Rules
   * ********************************* */
-validate.registationRules = () => {
+validate.registrationRules = () => {
   return [
     // firstname is required and must be string
     body("account_firstname")
@@ -108,7 +108,7 @@ validate.checkLoginData = async (req, res, next) => {
       account_email: req.body.account_email
     })
   }
-  
+  next()
   }
 
 module.exports = validate

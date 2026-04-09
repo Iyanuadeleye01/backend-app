@@ -27,3 +27,31 @@ WHERE classification_name ='Sport';
 UPDATE inventory
 SET inv_image = REPLACE(inv_image, '/images', '/images/vehicles'),
 	inv_thumbnail = REPLACE(inv_thumbnail, '/images','/images/vehicles');
+
+
+// saved here
+-- async function accountLogin(req, res) {
+--   const { account_email, account_password } = req.body
+
+--   const account = await accountModel.getAccountByEmail(account_email)
+--   if (!account) {
+--     return res.render("account/login", {
+--       title: "Login",
+--       errors: [{ msg: "Email or password is incorrect" }],
+--       account_email
+--     })
+--   }
+
+--   // const passwordMatch = await bcrypt.compare(account_password, account.account_password)
+--   // if (!passwordMatch) {
+--   //   return res.render("account/login", {
+--   //     title: "Login",
+--   //     errors: [{ msg: "Email or password is incorrect" }],
+--   //     account_email
+--   //   })
+--   // }
+
+--   // // Success → create session
+--   // req.session.account = account
+--   // res.redirect("/account/dashboard")
+-- }
