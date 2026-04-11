@@ -343,6 +343,36 @@ invController.updateInventory = async function (req, res, next) {
   }
 }
 
+// Build delete confirmation view
+invController.buildDeleteView = async function(req, res) {
+
+  const inv_id = req.params.inv_id
+
+  const item = await invModel.getInventoryById(inv_id)
+
+  res.render("inventory/delete-confirm", {
+    title: "Delete Vehicle",
+    ...item
+  })
+}
+
+
+// Process delete
+invController.deleteInventory = async function(req, res) {
+
+  const { inv_id } = req.body
+
+  const result = await invModel.deleteInventory(inv_id)
+
+  if (result) {
+    req.flash("notice", "Item deleted successfully")
+    res.redirect("/inv/")
+  } else {
+    req.flash("notice", "Delete failed")
+    res.redirect(`/inv/delete/${inv_id}`)
+  }
+}
+
 
 
 module.exports = invController

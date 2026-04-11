@@ -1,0 +1,68 @@
+<div class="account-container">
+
+  <h1>Account Settings</h1>
+
+  <!-- ACCOUNT UPDATE FORM -->
+  <section class="card">
+
+    <h2>Update Account Information</h2>
+
+    <form action="/account/update" method="post" class="form">
+
+      <input type="hidden" name="account_id" value="<%= account_id %>">
+
+      <div class="form-group">
+        <label for="account_firstname">First Name</label>
+        <input type="text" id="account_firstname" name="account_firstname"
+          value="<%= account_firstname %>" required>
+      </div>
+
+      <div class="form-group">
+        <label for="account_lastname">Last Name</label>
+        <input type="text" id="account_lastname" name="account_lastname"
+          value="<%= account_lastname %>" required>
+      </div>
+
+      <div class="form-group">
+        <label for="account_email">Email</label>
+        <input type="email" id="account_email" name="account_email"
+          value="<%= account_email %>" required>
+      </div>
+
+      <button type="submit" class="btn primary">
+        Update Account
+      </button>
+
+    </form>
+  </section>
+
+  <!-- PASSWORD FORM -->
+  <section class="card">
+
+    <h2>Change Password</h2>
+
+    <form action="/account/update-password" method="post" class="form">
+
+      <input type="hidden" name="account_id" value="<%= account_id %>">
+
+      <div class="form-group">
+        <label for="account_password">New Password</label>
+        <input type="password" id="account_password" name="account_password"
+          minlength="12"
+          pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"
+          required>
+      </div>
+
+      <p class="hint">
+        Password must be at least 12 characters and include uppercase, lowercase,
+        number, and special character.
+      </p>
+
+      <button type="submit" class="btn danger">
+        Change Password
+      </button>
+
+    </form>
+  </section>
+
+</div>

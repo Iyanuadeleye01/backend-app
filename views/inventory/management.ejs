@@ -1,44 +1,10 @@
-<!-- <div class="management-container">
-    <h1 class="page-title">
-        <%= title %>
-    </h1>
-
-    <% if (messages && messages.length> 0) { %>
-        <div class="flash-message">
-            <ul>
-                <% messages.forEach(msg=> { %>
-                    <li>
-                        <%= msg %>
-                    </li>
-                    <% }) %>
-            </ul>
-        </div>
-        <% } %>
-            <div class="management-actions">
-
-                <ul>
-                    <li><a href="/inv/add-classification">Add New Classification</a></li>
-                    <li><a href="/inv/add-inventory">Add New Inventory</a></li>
-
-                </ul>
-                <h2>Manage Inventory</h2>
-                <p>Select a Classification from the List to see the items.</p>
-                <%- classificationSelect %>
-
-                    <table id="inventoryDisplay"></table>
-
-                    <noscript>JavaScript must be enabled to use this page.</noscript>
-            </div>
-</div>
-
-<script src="../../js/inventory.js"></script> -->
 
 <div class="management-container">
   <!-- Page Title -->
   <header>
     <h1 class="page-title"><%= title %></h1>
   </header>
-
+  
   <!-- Flash Messages -->
   <% if (messages && messages.length > 0) { %>
     <section class="flash-message">

@@ -55,3 +55,7 @@ SET inv_image = REPLACE(inv_image, '/images', '/images/vehicles'),
 --   // req.session.account = account
 --   // res.redirect("/account/dashboard")
 -- }
+
+<!-- <div id="tools">
+    <a title="Click to log in" href="/account/login">My Account</a>
+  </div> -->

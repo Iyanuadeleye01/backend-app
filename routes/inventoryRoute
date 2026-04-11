@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const invController = require("../controllers/invController");
 const utilities = require("../utilities")
+const auth = require("../utilities/auth")
 
 // Route: Vehicles by classification
 router.get("/type/:classification_id", invController.buildByClassificationId);
@@ -32,5 +33,41 @@ router.get(
 router.post("/update/", 
   utilities.handleErrors(invController.updateInventory))
 
+
+  // Employee or admin priviledge access to add classification(get)
+router.get("/add-classification",
+  auth.checkEmployeeOrAdmin,
+  utilities.handleErrors(invController.buildAddClassification)
+)
+
+// Employee or admin priviledge access to add classification
+router.post("/add-classification",
+  auth.checkEmployeeOrAdmin,
+  utilities.handleErrors(invController.buildAddClassification)
+)
+
+// Privilege access for employee and admin to edit
+router.get("/edit/:inv_id",
+  auth.checkEmployeeOrAdmin,
+  utilities.handleErrors(invController.editInventoryView)
+)
+
+// Priviledge access for employee and admin to update the invetory
+router.post("/update",
+  auth.checkEmployeeOrAdmin,
+  utilities.handleErrors(invController.updateInventory)
+)
+
+// Show delete page
+router.get("/delete/:inv_id",
+  auth.checkEmployeeOrAdmin,
+  utilities.handleErrors(invController.buildDeleteView)
+)
+
+// Process delete
+router.post("/delete",
+  auth.checkEmployeeOrAdmin,
+  utilities.handleErrors(invController.deleteInventory)
+)
 
 module.exports = router;

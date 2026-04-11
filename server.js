@@ -19,6 +19,7 @@ const accountRoutes = require("./routes/accountRoute")
 const bodyParser = require("body-parser")
 const classificationRoute = require("./routes/classificationRoute")
 const cookieParser = require("cookie-parser")
+const authUtilities = require("./utilities/auth")
 
 /* ***********************
  * Middleware
@@ -49,6 +50,8 @@ app.use(function(req, res, next){
 app.use(cookieParser())
 
 app.use(utilities.checkJWTToken)
+// Check Jason web token
+app.use(authUtilities.checkJWT)
 
 /* ***********************
  * View Engine and Templates
