@@ -1,0 +1,39 @@
+<h1>Search Results for <%= search %></h1>
+
+<% if (Array.isArray(results) && results.length> 0) { %>
+    <ul class="vehicle-list">
+        <% results.forEach(vehicle=> { %>
+            <li>
+                <h2>
+                    <%= vehicle.inv_make %>
+                        <%= vehicle.inv_model %>
+                </h2>
+                <img src="<%= vehicle.inv_thumbnail %>" alt="<%= vehicle.inv_make %> <%= vehicle.inv_model %>" />
+                <p>Price: $<%= vehicle.inv_price %>
+                </p>
+                <p>Description: <%= vehicle.inv_description %>
+                </p>
+                <p>Miles: <%= vehicle.inv_miles %>
+                </p>
+                <p>Colour: <%= vehicle.inv_color %>
+                </p>
+                <p>Year: <%= vehicle.inv_year %>
+                </p>
+
+            </li>
+            <% }) %>
+    </ul>
+    <% } else { %>
+        <p>No vehicle found</p>
+        <% } %>
+
+            <!-- Flash messages -->
+            <% if (Array.isArray(messages) && messages.length> 0) { %>
+                <ul class="notice">
+                    <% messages.forEach(msg=> { %>
+                        <li>
+                            <%= msg %>
+                        </li>
+                        <% }) %>
+                </ul>
+                <% } %>

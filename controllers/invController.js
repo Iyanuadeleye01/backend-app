@@ -302,7 +302,7 @@ invController.updateInventory = async function (req, res, next) {
     classification_id,
   } = req.body
   const updateResult = await invModel.updateInventory(
-    inv_id,  
+    inv_id,
     inv_make,
     inv_model,
     inv_description,
@@ -324,27 +324,27 @@ invController.updateInventory = async function (req, res, next) {
     const itemName = `${inv_make} ${inv_model}`
     req.flash("notice", "Sorry, the insert failed.")
     res.status(501).render("inventory/edit-inventory", {
-    title: "Edit " + itemName,
-    nav,
-    classificationSelect: classificationSelect,
-    errors: null,
-    inv_id,
-    inv_make,
-    inv_model,
-    inv_year,
-    inv_description,
-    inv_image,
-    inv_thumbnail,
-    inv_price,
-    inv_miles,
-    inv_color,
-    classification_id
+      title: "Edit " + itemName,
+      nav,
+      classificationSelect: classificationSelect,
+      errors: null,
+      inv_id,
+      inv_make,
+      inv_model,
+      inv_year,
+      inv_description,
+      inv_image,
+      inv_thumbnail,
+      inv_price,
+      inv_miles,
+      inv_color,
+      classification_id
     })
   }
 }
 
 // Build delete confirmation view
-invController.buildDeleteView = async function(req, res) {
+invController.buildDeleteView = async function (req, res) {
 
   const inv_id = req.params.inv_id
 
@@ -358,7 +358,7 @@ invController.buildDeleteView = async function(req, res) {
 
 
 // Process delete
-invController.deleteInventory = async function(req, res) {
+invController.deleteInventory = async function (req, res) {
 
   const { inv_id } = req.body
 
@@ -370,6 +370,39 @@ invController.deleteInventory = async function(req, res) {
   } else {
     req.flash("notice", "Delete failed")
     res.redirect(`/inv/delete/${inv_id}`)
+  }
+}
+
+// Process search inventory
+invController.searchInventory = async function (req, res) {
+  const nav = await utilities.getNav()
+
+  try {
+    let { search } = req.query
+
+    if (!search || search.trim() === "") {
+      req.flash("notice", "Please enter a search term")
+      return res.redirect("/")
+    }
+
+    // To sanitize input
+    search = search.trim()
+
+    const results = await invModel.searchInventory(search)
+
+    res.render("inventory/search", {
+      title: "Search Results",
+      nav,
+      results,
+      search,
+      messages: req.flash("notice")
+    })
+
+  } catch (error) {
+    console.error("controller error:", error)
+
+    req.flash("notice", "Something went wrong. Please try again.")
+    res.redirect("/")
   }
 }
 

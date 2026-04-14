@@ -7,8 +7,14 @@
     <% if (loggedin) { %>
       <a href="/account/">Welcome <%= accountData.account_firstname %></a>
       <a href="/account/logout">Logout</a>
-    <% } else { %>
-      <a href="/account/login">My Account</a>
-    <% } %>
+      <% } else { %>
+        <a href="/account/login">My Account</a>
+        <% } %>
   </div>
+
+  <form action="/inv/search" method="get" class="search-form">
+    <input type="text" name="search" placeholder="Search Vehicles...." value="<%= typeof search !== 'undefined' ? search : '' %>" required>
+    <button type="submit">Search</button>
+
+  </form>
 </header>

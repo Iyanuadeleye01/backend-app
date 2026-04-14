@@ -139,6 +139,23 @@ async function deleteInventory(inv_id) {
   return result.rowCount
 }
 
+// To search inventory using inv_make and model
+async function searchInventory(searchTerm) {
+  try {
+    const sql = `
+    SELECT * 
+    FROM inventory
+    WHERE inv_make ILIKE $1
+      OR inv_model ILIKE $1`
+
+    const result = await pool.query(sql, [`%${searchTerm}%`])
+    return result.rows
+  } catch (error) {
+    console.error("Model error:", error)
+    throw error
+  }
+}
+
 
 module.exports = {
   getClassifications,
@@ -147,5 +164,6 @@ module.exports = {
   addClassification,
   addInventory,
   updateInventory,
-  deleteInventory
+  deleteInventory,
+  searchInventory
 }
